@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GununOzeti</string>
+    <string name="connection_error">İnternet bağlantısına ulaşılamadı.</string>
 </resources>

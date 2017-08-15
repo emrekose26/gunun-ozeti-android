@@ -43,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/summaryDate"
             android:layout_centerInParent="true"
-            android:layout_marginTop="32dp" />
+            android:layout_marginTop="32dp"
+            android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/ozetRecyclerView"
@@ -53,6 +54,33 @@
             android:layout_below="@+id/summaryDate"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp" />
+
+        <!-- connection error view -->
+        <LinearLayout
+            android:id="@+id/connectionErrorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/avatarLayout"
+            android:layout_below="@+id/toolbar"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_signal_wifi_off" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:text="@string/connection_error"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+        <!-- connection error view end -->
 
         <LinearLayout
             android:id="@+id/avatarLayout"

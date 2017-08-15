@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.emrekose.gununozeti.model.entity.SummaryResponse;
 import com.emrekose.gununozeti.mvp.presenter.SummaryPresenter;
 import com.emrekose.gununozeti.mvp.view.SummaryView;
 import com.emrekose.gununozeti.ui.adapter.SummaryRecyclerAdapter;
+import com.emrekose.gununozeti.utils.NetworkUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
     @BindView(R.id.fabChange)
     FloatingActionButton fab;
 
+    @BindView(R.id.connectionErrorLayout)
+    LinearLayout connectionErrorLayout;
+
     @Inject
     SummaryPresenter presenter;
 
@@ -59,9 +64,18 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        presenter.loadAllSummaries();
+        if (!NetworkUtil.isAvailable(this)){
+            connectionErrorLayout.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            summaryDate.setVisibility(View.GONE);
+        }else {
+            connectionErrorLayout.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+            summaryDate.setVisibility(View.VISIBLE);
 
-        fab.setOnClickListener(v -> getDatePickerDialog());
+            presenter.loadAllSummaries();
+            fab.setOnClickListener(v -> getDatePickerDialog());
+        }
     }
 
     @Override
