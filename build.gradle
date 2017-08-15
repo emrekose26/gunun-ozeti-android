@@ -53,6 +53,7 @@ ext {
     gsonConverterVersion = '2.1.0'
     okhttpVersion = '3.8.1'
     timberVersion = '4.5.1'
+    circleImageViewVersion = '2.1.0'
 
 
     // Dependencies
@@ -74,6 +75,7 @@ ext {
     butterKnife = "com.jakewharton:butterknife:$butterKnifeVersion"
     butterKnifeCompiler = "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
     timber = "com.jakewharton.timber:timber:$timberVersion"
+    circleImageView = "de.hdodenhof:circleimageview:$circleImageViewVersion"
 
 }
 
