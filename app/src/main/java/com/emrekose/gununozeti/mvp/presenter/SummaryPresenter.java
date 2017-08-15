@@ -7,4 +7,6 @@ package com.emrekose.gununozeti.mvp.presenter;
 public interface SummaryPresenter {
 
     void loadSummaries(String date);
+
+    void loadAllSummaries();
 }

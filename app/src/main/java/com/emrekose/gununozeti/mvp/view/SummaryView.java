@@ -1,5 +1,6 @@
 package com.emrekose.gununozeti.mvp.view;
 
+import com.emrekose.gununozeti.model.entity.AllSummaryResponse;
 import com.emrekose.gununozeti.model.entity.SummaryResponse;
 
 /**
@@ -13,4 +14,6 @@ public interface SummaryView {
     void hideLoading();
 
     void showSummaries(SummaryResponse response);
+
+    void showAllSummaries(AllSummaryResponse response);
 }

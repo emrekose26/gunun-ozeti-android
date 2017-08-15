@@ -1,5 +1,6 @@
 package com.emrekose.gununozeti.model.api;
 
+import com.emrekose.gununozeti.model.entity.AllSummaryResponse;
 import com.emrekose.gununozeti.model.entity.SummaryResponse;
 
 import retrofit2.http.GET;
@@ -14,4 +15,7 @@ public interface ApiSource {
 
     @GET("?format=json")
     Observable<SummaryResponse> getSummaries(@Query("date") String date);
+
+    @GET("?get=all")
+    Observable<AllSummaryResponse> getAllSummaries();
 }

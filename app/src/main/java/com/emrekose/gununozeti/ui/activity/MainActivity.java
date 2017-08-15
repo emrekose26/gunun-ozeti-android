@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.emrekose.gununozeti.R;
+import com.emrekose.gununozeti.model.entity.AllSummaryResponse;
 import com.emrekose.gununozeti.model.entity.Content;
 import com.emrekose.gununozeti.model.entity.SummaryResponse;
 import com.emrekose.gununozeti.mvp.presenter.SummaryPresenter;
@@ -58,12 +59,9 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        presenter.loadSummaries("2017-08-14");
+        presenter.loadAllSummaries();
 
-
-        fab.setOnClickListener(v -> {
-            getDatePickerDialog();
-        });
+        fab.setOnClickListener(v -> getDatePickerDialog());
     }
 
     @Override
@@ -87,6 +85,11 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void showAllSummaries(AllSummaryResponse response) {
+        presenter.loadSummaries(response.getAllContent().getDate());
     }
 
     @OnClick(R.id.avatarLayout)

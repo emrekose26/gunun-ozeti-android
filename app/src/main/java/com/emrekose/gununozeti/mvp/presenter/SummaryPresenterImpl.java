@@ -35,4 +35,16 @@ public class SummaryPresenterImpl implements SummaryPresenter {
                     view.showSummaries(response);
                 }, e -> Timber.e(e.getMessage()));
     }
+
+    @Override
+    public void loadAllSummaries() {
+        view.showLoading();
+
+        apiSource.getAllSummaries()
+                .compose(RxTransformer.applyIOToMainThreadSchedulers())
+                .subscribe(response -> {
+                    view.hideLoading();
+                    view.showAllSummaries(response);
+                }, e -> Timber.e(e.getMessage()));
+    }
 }
