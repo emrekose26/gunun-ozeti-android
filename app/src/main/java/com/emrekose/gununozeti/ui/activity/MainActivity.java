@@ -1,5 +1,7 @@
 package com.emrekose.gununozeti.ui.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import dagger.android.AndroidInjection;
 import timber.log.Timber;
 
@@ -77,5 +80,12 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
             Timber.e(content.getTitle());
             Timber.e(content.getUrl());
         }
+    }
+
+    @OnClick(R.id.avatarLayout)
+    public void avatarOnClick(){
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("http://www.twitter.com/HasanYasar"));
+        startActivity(i);
     }
 }

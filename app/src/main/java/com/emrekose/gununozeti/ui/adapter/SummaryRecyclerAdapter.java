@@ -1,10 +1,13 @@
 package com.emrekose.gununozeti.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.emrekose.gununozeti.R;
@@ -47,6 +50,12 @@ public class SummaryRecyclerAdapter extends RecyclerView.Adapter<SummaryRecycler
         Content content = contentList.get(position);
         holder.summaryNumber.setText(String.valueOf(position + 1));
         holder.summaryText.setText(content.getTitle());
+
+        holder.rowLayout.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(content.getUrl()));
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -61,6 +70,9 @@ public class SummaryRecyclerAdapter extends RecyclerView.Adapter<SummaryRecycler
 
         @BindView(R.id.summaryText)
         TextView summaryText;
+
+        @BindView(R.id.rowLayout)
+        LinearLayout rowLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
