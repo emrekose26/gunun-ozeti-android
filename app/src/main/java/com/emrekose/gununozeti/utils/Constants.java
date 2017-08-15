@@ -5,5 +5,5 @@ package com.emrekose.gununozeti.utils;
  */
 
 public class Constants {
-    public static final String BASE_URL = "http://gununozeti.org/api";
+    public static final String BASE_URL = "http://gununozeti.org/api/";
 }
