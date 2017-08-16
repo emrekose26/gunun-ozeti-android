@@ -33,7 +33,10 @@ public class SummaryPresenterImpl implements SummaryPresenter {
                 .subscribe(response -> {
                     view.hideLoading();
                     view.showSummaries(response);
-                }, e -> Timber.e(e.getMessage()));
+                }, e -> {
+                    view.showError();
+                    Timber.e("loadSummaries: " + e.getMessage());
+                });
     }
 
     @Override
@@ -45,6 +48,6 @@ public class SummaryPresenterImpl implements SummaryPresenter {
                 .subscribe(response -> {
                     view.hideLoading();
                     view.showAllSummaries(response);
-                }, e -> Timber.e(e.getMessage()));
+                }, e -> Timber.e("loadAllSummaries:" + e.getMessage()));
     }
 }

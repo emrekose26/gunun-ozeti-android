@@ -16,4 +16,6 @@ public interface SummaryView {
     void showSummaries(SummaryResponse response);
 
     void showAllSummaries(AllSummaryResponse response);
+
+    void showError();
 }

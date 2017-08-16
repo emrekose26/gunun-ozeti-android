@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
     @BindView(R.id.connectionErrorLayout)
     LinearLayout connectionErrorLayout;
 
+    @BindView(R.id.noContentErrorLayout)
+    LinearLayout noContentErrorLayout;
+
     @Inject
     SummaryPresenter presenter;
 
@@ -92,6 +95,10 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
 
     @Override
     public void showSummaries(SummaryResponse response) {
+        recyclerView.setVisibility(View.VISIBLE);
+        summaryDate.setVisibility(View.VISIBLE);
+        noContentErrorLayout.setVisibility(View.GONE);
+
         summaryDate.setText(response.getDate());
 
         List<Content> contentList = new ArrayList<>(response.getSummaries().values());
@@ -104,6 +111,13 @@ public class MainActivity extends AppCompatActivity implements SummaryView {
     @Override
     public void showAllSummaries(AllSummaryResponse response) {
         presenter.loadSummaries(response.getAllContent().getDate());
+    }
+
+    @Override
+    public void showError() {
+        noContentErrorLayout.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+        summaryDate.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.avatarLayout)
