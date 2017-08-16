@@ -1,5 +1,8 @@
-# gunun-ozeti-android
-Günün Özeti Android uygulaması
+# Günün Özeti Android 
+Teknoloji ve girişimcilik alanında günün öne çıkan haber başlıklarına ulaşabileceğiniz ve haberleri kaynağından okuyabileceğiniz Android uygulamasıdır. 
+
+[![](https://raw.githubusercontent.com/emrekose26/gunun-ozeti-android/master/arts/googleplaybadge.png)](https://play.google.com/store/apps/details?id=com.emrekose.gununozeti)
+
 
 <img src="https://raw.githubusercontent.com/emrekose26/gunun-ozeti-android/master/arts/ss2.png" height="750"/>
 
