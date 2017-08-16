@@ -1,7 +1,9 @@
 # gunun-ozeti-android
 Günün Özeti Android uygulaması
 
+<img src="https://raw.githubusercontent.com/emrekose26/gunun-ozeti-android/master/arts/ss1.png" height="750"/>
 
+<img src="https://raw.githubusercontent.com/emrekose26/gunun-ozeti-android/master/arts/ss2.png" height="750"/>
 
 # Kullanılan Kütüphaneler
 
@@ -15,6 +17,8 @@ Günün Özeti Android uygulaması
 - [Timber](https://github.com/JakeWharton/timber)
 - [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 
+# API 
+[Günün Özeti API](https://gununozeti.org/api) @[Tayfun Erbilen](https://github.com/tayfunerbilen)
 
 License
 --------
